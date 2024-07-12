@@ -9,10 +9,6 @@
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
     },
     {
-      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Web_Ecommerce_Cilent.styles.css",
-      "PackagePath": "staticwebassets\\Web_Ecommerce_Cilent.styles.css"
-    },
-    {
       "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\build\\config\\.eslintrc.json",
       "PackagePath": "staticwebassets\\build\\config\\.eslintrc.json"
     },

@@ -1,0 +1,199 @@
+﻿@page "/add-product"
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Add Product</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="inputName">Product Name</label>
+                        <input type="text" id="inputName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">Product Description</label>
+                        <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputStatus">Featured</label>
+                        <select id="Featured" class="form-control custom-select">
+                            <option>True</option>
+                            <option>False</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">Price</label>
+                        <input type="number" id="Price" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Quantity">Quantity</label>
+                        <input type="number" id="Quantity" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Brand">Brand</label>
+                        <select id="Brand" class="form-control custom-select">
+                            <option>DELL</option>
+                            <option>HP</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Image Product</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="image1">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Upload</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Image Product</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="image2">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Upload</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Image Product</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="image3">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Upload</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <div class="col-md-6">
+            <div class="card card-secondary">
+                <div class="card-header">
+                    <h3 class="card-title">Detail</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="series">Series Laptop</label>
+                        <input type="text" id="series" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="PartNumber">Part Number</label>
+                        <input type="text" id="PartNumber" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Color">Color</label>
+                        <input type="text" id="Color" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="CPU">CPU</label>
+                        <input type="text" id="CPU" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Screen">Screen</label>
+                        <input type="text" id="Screen" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Storage">Storage</label>
+                        <input type="text" id="Storage" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="ConnetorPort">Connetor Port</label>
+                        <input type="text" id="ConnetorPort" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Wireless">Wireless Connection</label>
+                        <input type="text" id="Wireless" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="KeyBoard">Key board</label>
+                        <input type="text" id="KeyBoard" class="form-control">
+                    </div>
+                     <div class="form-group">
+                        <label for="OS">OS</label>
+                        <input type="text" id="OS" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Size">Size</label>
+                        <input type="text" id="Size" class="form-control">
+                    </div>
+                     <div class="form-group">
+                        <label for="Pin">Pin</label>
+                        <input type="text" id="Pin" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Weight">Weight</label>
+                        <input type="text" id="Weight" class="form-control">
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="#" class="btn btn-secondary">Cancel</a>
+            <input type="submit" value="Create new Product" class="btn btn-success float-right">
+        </div>
+    </div>
+</section>
+
+@code {
+    // [Inject]
+    // private NavigationManager Navigation { get; set; }
+
+    // private void NavigateToAddProduct()
+    // {
+    //     Navigation.NavigateTo("/add-product");
+    // }
+    // [SupplyParameterFromForm]
+    // public Parent parentobj { get; set; } = new();
+
+    // List<SystemCodeDetail> ParentType = new List<SystemCodeDetail>();
+
+    // List<SystemCodeDetail> Gender = new List<SystemCodeDetail>();
+
+    // List<Student> Students = new List<Student>();
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     ParentType = await SystemCodeDetailService.GetByCodeAsync("ParentType");
+    //     Gender = await SystemCodeDetailService.GetByCodeAsync("Gender");
+    //     Students = await StudentService.GetAllStudentsAsync();
+    // }
+
+    // protected async Task CreateParent()
+    // {
+    //     var result = await ParentService.AddAsync(parentobj);
+    //     navigation.NavigateTo("/parents-list");
+    // }
+    // public void Cancel()
+    // {
+    //     navigation.NavigateTo("/parents-list");
+    // }
+}

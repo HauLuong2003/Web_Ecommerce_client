@@ -30,14 +30,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Brand/BrandList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnJhbmRcQnJhbmRMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Product/AddOrUpdateProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxBZGRPclVwZGF0ZVByb2R1Y3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Product/ProductList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxQcm9kdWN0TGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-awouxfviot
