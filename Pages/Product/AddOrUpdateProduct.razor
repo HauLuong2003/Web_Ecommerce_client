@@ -1,54 +1,67 @@
 ﻿@page "/add-product"
+
 <!-- Main content -->
 <section class="content">
-    <div class="row">
+    <EditForm Model="product" Enhance OnValidSubmit="HandleSaveProduct">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">        
         <div class="col-md-6">
+              
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Add Product</h3>
-
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
                 </div>
+
                 <div class="card-body">
+                    
                     <div class="form-group">
                         <label for="inputName">Product Name</label>
-                        <input type="text" id="inputName" class="form-control">
+                        <InputText @bind-Value="product.Name" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="inputDescription">Product Description</label>
-                        <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                        <InputTextArea @bind-Value="product.Description" class="form-control" rows="4"></InputTextArea>
                     </div>
                     <div class="form-group">
                         <label for="inputStatus">Featured</label>
-                        <select id="Featured" class="form-control custom-select">
+                            <InputSelect for="Featured" @bind-Value="product.Featured" class="form-control custom-select">
                             <option>True</option>
                             <option>False</option>
-                        </select>
+                        </InputSelect>
                     </div>
                     <div class="form-group">
                         <label for="Price">Price</label>
-                        <input type="number" id="Price" class="form-control">
+                            <InputNumber TValue="double" @bind-Value="price.Price1" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="Quantity">Quantity</label>
-                        <input type="number" id="Quantity" class="form-control">
+                        <InputNumber TValue="int" @bind-Value="product.Quantity" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="Brand">Brand</label>
-                        <select id="Brand" class="form-control custom-select">
-                            <option>DELL</option>
-                            <option>HP</option>
-                        </select>
+                            <InputSelect for="brandName" @bind-Value="product.BrandId" class="form-control custom-select">
+                                @if (brand != null && brand.Any())
+                                {
+                                    @foreach (var brands in brand)
+                                    {
+                                        <option value="@brands.BrandId">@brands.BrandName</option>
+                                    }
+                                }
+                        </InputSelect>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Image Product</label>
+                            <label class="form label @(ImageUploadMessage == ""?"":"Text-danger")">
+                              @(ImageUploadMessage ==""? "Upload Image" :ImageUploadMessage)
+                        </label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image1">
+                                    <InputFile class="custom-file-input" OnChange="UploadImage1" />
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                             <div class="input-group-append">
@@ -60,7 +73,7 @@
                         <label for="exampleInputFile">Image Product</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image2">
+                                    <InputFile type="file" class="custom-file-input" OnChange="UploadImage2" />
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                             <div class="input-group-append">
@@ -72,7 +85,7 @@
                         <label for="exampleInputFile">Image Product</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image3">
+                                    <InputFile type="file" class="custom-file-input" OnChange="UploadImage3" id="image3" />
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                             <div class="input-group-append">
@@ -80,6 +93,7 @@
                             </div>
                         </div>
                     </div>
+              
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -99,101 +113,174 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="series">Series Laptop</label>
-                        <input type="text" id="series" class="form-control">
+                            <InputText @bind-Value="detail.SeriesLaptop" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="PartNumber">Part Number</label>
-                        <input type="text" id="PartNumber" class="form-control">
+                        <InputText @bind-Value="detail.PartNumber" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="Color">Color</label>
-                        <input type="text" id="Color" class="form-control">
+                        <InputText @bind-Value="detail.Color" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="CPU">CPU</label>
-                        <input type="text" id="CPU" class="form-control">
+                      <InputText @bind-Value="detail.CpuGeneration" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="Screen">Screen</label>
-                        <input type="text" id="Screen" class="form-control">
+                       <InputText @bind-Value="detail.Screen" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="Storage">Storage</label>
-                        <input type="text" id="Storage" class="form-control">
+                        <InputText @bind-Value="detail.Storage" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="ConnetorPort">Connetor Port</label>
-                        <input type="text" id="ConnetorPort" class="form-control">
+                       <InputText @bind-Value="detail.ConnectorPort" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="Wireless">Wireless Connection</label>
-                        <input type="text" id="Wireless" class="form-control">
-                    </div>
+                            <InputText @bind-Value="detail.WirelessConnection" class="form-control" />
+                        </div>
                     <div class="form-group">
                         <label for="KeyBoard">Key board</label>
-                        <input type="text" id="KeyBoard" class="form-control">
-                    </div>
+                            <InputText @bind-Value="detail.Keyboard" class="form-control" />
+                        </div>
                      <div class="form-group">
                         <label for="OS">OS</label>
-                        <input type="text" id="OS" class="form-control">
-                    </div>
+                            <InputText @bind-Value="detail.Os" class="form-control" />
+                        </div>
                     <div class="form-group">
                         <label for="Size">Size</label>
-                        <input type="text" id="Size" class="form-control">
-                    </div>
+                            <InputText @bind-Value="detail.Size" class="form-control" />
+                        </div>
                      <div class="form-group">
-                        <label for="Pin">Pin</label>
-                        <input type="text" id="Pin" class="form-control">
+                            <InputText @bind-Value="detail.Pin" class="form-control" />
+                            <input type="text" id="Pin" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="Weight">Weight</label>
-                        <input type="text" id="Weight" class="form-control">
+                            <InputText @bind-Value="detail.Weight" class="form-control" />
+                            <input type="text" id="Weight" class="form-control">
                     </div>
+                      
                 </div>
+
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
-        </div>
+         </div>
+   
     </div>
+    </EditForm>
     <div class="row">
         <div class="col-12">
+            @if (ShowSaveButton)
+            {
+                <input type="submit" value="Create new Product" class="btn btn-success float-right">
+            }
+            <BusyButton ShowBusyButton="ShowBusyButton"></BusyButton>
             <a href="#" class="btn btn-secondary">Cancel</a>
-            <input type="submit" value="Create new Product" class="btn btn-success float-right">
+          
         </div>
     </div>
-</section>
-
+ </section>
+ <MessageDialog @ref="messageDialog"></MessageDialog>
 @code {
-    // [Inject]
-    // private NavigationManager Navigation { get; set; }
+    public Product product { get; set; } = new();
+    public Price price { get; set; } = new();
+    public List<Brand> brand { get; set; } = new List<Brand>();
+    public Detail detail { get; set; } = new();
+    string ImageUploadMessage = "";
+    MessageDialog? messageDialog;
+    async Task UploadImage1(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+            var uniqueFileName = Guid.NewGuid().ToString() + "_" + e.File.Name;
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-    // private void NavigateToAddProduct()
-    // {
-    //     Navigation.NavigateTo("/add-product");
-    // }
-    // [SupplyParameterFromForm]
-    // public Parent parentobj { get; set; } = new();
+            // Save the image path to the database
+            var imagePath = "/images/" + uniqueFileName;
+            product.Image1 = imagePath;
+            return;
+        }
+        ImageUploadMessage = "Image";
+        return;
 
-    // List<SystemCodeDetail> ParentType = new List<SystemCodeDetail>();
+    }
+    async Task UploadImage2(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+            var uniqueFileName = Guid.NewGuid().ToString() + "_" + e.File.Name;
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-    // List<SystemCodeDetail> Gender = new List<SystemCodeDetail>();
+            // Save the image path to the database
+            var imagePath = "/images/" + uniqueFileName;
+            product.Image2 = imagePath;
+            return;
+        }
+        ImageUploadMessage = "Image";
+        return;
 
-    // List<Student> Students = new List<Student>();
+    }
+    async Task UploadImage3(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+            var uniqueFileName = Guid.NewGuid().ToString() + "_" + e.File.Name;
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     ParentType = await SystemCodeDetailService.GetByCodeAsync("ParentType");
-    //     Gender = await SystemCodeDetailService.GetByCodeAsync("Gender");
-    //     Students = await StudentService.GetAllStudentsAsync();
-    // }
+            // Save the image path to the database
+            var imagePath = "/images/" + uniqueFileName;
+            product.Image3 = imagePath;
+            return;
+        }
+        ImageUploadMessage = "Image";
+        return;
 
-    // protected async Task CreateParent()
-    // {
-    //     var result = await ParentService.AddAsync(parentobj);
-    //     navigation.NavigateTo("/parents-list");
-    // }
-    // public void Cancel()
-    // {
-    //     navigation.NavigateTo("/parents-list");
-    // }
+    }
+    async Task HandleSaveProduct()
+    {
+        ShowSaveButton = false;
+        ShowBusyButton = !ShowSaveButton;
+        if (string.IsNullOrEmpty(product.Image1))
+        {
+            messageDialog!.SetDialogValues("Warning", "you need to choose image");
+            SetMessageDialog();
+            return;
+        }
+        var (flag, message) = await productService.AddProduct(product);
+        if (flag)
+        {
+            messageDialog!.SetDialogValues("success", message);
+        }
+        else
+        {
+            messageDialog!.SetDialogValues("danger", message);
+        }
+        SetMessageDialog();
+        return;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        brand = await brandService.GetAllBrands();
+
+    }
+    public bool ShowBusyButton{ get; set; }
+    public bool ShowSaveButton { get; set; } = true;
+    public async void SetMessageDialog()
+    {
+        await messageDialog!.ShowMessage();
+        ShowBusyButton = false;
+        ShowSaveButton = true;
+        StateHasChanged();
+    }
 }

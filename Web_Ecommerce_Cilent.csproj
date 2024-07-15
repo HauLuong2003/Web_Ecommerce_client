@@ -12,7 +12,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Layout\Customer\" />
+    <Folder Include="wwwroot\images\" />
     <Folder Include="Pages\Brand\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ecommerce_Models\Ecommerce_Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\bootstrap\bootstrap.min.css.map" />
   </ItemGroup>
 
 </Project>

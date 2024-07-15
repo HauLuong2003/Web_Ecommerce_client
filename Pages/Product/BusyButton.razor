@@ -1,0 +1,9 @@
+﻿@if(ShowBusyButton){
+    <Button class="btn btn-primary" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        processing please
+    </Button>
+}
+@code {
+    [Parameter]public bool ShowBusyButton{ get; set; }
+}

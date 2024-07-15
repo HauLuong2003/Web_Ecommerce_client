@@ -465,6 +465,18 @@
       "PackagePath": "staticwebassets\\build\\scss\\plugins\\_toastr.scss"
     },
     {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
       "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\dist\\css\\adminlte.css",
       "PackagePath": "staticwebassets\\dist\\css\\adminlte.css"
     },

@@ -835,6 +835,13 @@ D:\Project_C#\Web_ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compres
 D:\Project_C#\Web_ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\19a5ru5doe.gz
 D:\Project_C#\Web_ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\qxpedmtaqp.gz
 D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\Web_Ecommerce_Cilent.sourcelink.json
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\bin\Debug\net8.0\wwwroot\_framework\Ecommerce_Models.pdb
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\bin\Debug\net8.0\wwwroot\_framework\Ecommerce_Models.wasm
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\bin\Debug\net8.0\wwwroot\_framework\Ecommerce_Models.wasm.gz
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\bin\Debug\net8.0\wwwroot\_framework\Ecommerce_Models.pdb.gz
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\bin\Debug\net8.0\Ecommerce_Models.dll
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\bin\Debug\net8.0\Ecommerce_Models.pdb
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\webcil\Ecommerce_Models.wasm
 D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\jl6bmukr0f.gz
 D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\2x02nsnci5.gz
 D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\wslzemraly.gz
@@ -1026,4 +1033,6 @@ D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compres
 D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\2efit9aupv.gz
 D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\s09y3f2be2.gz
 D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\kb4lifgty9.gz
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\oat0qhdmsi.gz
+D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\yd7b5uegw1.gz
 D:\Project_C#\Web_Ecommerce_Server\Web_Ecommerce_Cilent\obj\Debug\net8.0\compressed\weyfl0mn3m.gz

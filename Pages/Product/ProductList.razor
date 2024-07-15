@@ -11,7 +11,12 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header"></div>
-
+                            @*    @if (!AllProduct.Any())
+                            {
+                                <p><em>Loading Parents...</em></p>
+                            }
+                            @if (AllProduct.Any())
+                            { *@
                                 <div class="card-body">
                                     <table class="table table-striped table-hover">
                                         <thead>
@@ -26,11 +31,33 @@
                                                 <th>Edit</th>
                                             </tr>
                                         </thead>
-                                        <tbody>      
-                                            
+                                        <tbody>
+                                            @*      @foreach (var product in AllProduct)
+                                        {
+                                            <tr>
+                                           <td>@product.Id</td>
+                                        <td>@product.FirstName</td>
+                                        <td>@product.MiddleName</td>
+                                        <td>@product.LastName</td>
+                                        <td>@product.EmailAddress</td>
+                                        <td>@product.PhoneNumber</td>
+                                        <td>@product.Country.Name</td>
+                                                <td>
+                                                        <a class="btn btn-success" href="/product/edit/@student.Id"> Edit </a>
+                                                </td>
+                                                <td>
+                                                     <a class="btn btn-danger" href="/product/delete/@student.Id"> Delete </a>
+                                                </td>
+                                            </tr>
+                                        } *@
                                         </tbody>
                                     </table>
                                 </div>
+                            
+                            @*    else
+                            {
+                            <div class="alert alert-info"> There is not products List Availlable</div>
+                            } *@
                         </div>
                     </div>
                 </div>
@@ -39,23 +66,22 @@
     </div>
 </div>
 @code {
-
-    // public List<Parent> AllParents { get; set; } = new();
+      public List<Product> product { get; set; } = new();
 
     // protected override async Task OnInitializedAsync()
     // {
-    //     await LoadAllParents();
+    //     await LoadAllProduct();
     // }
 
-    // public async Task LoadAllParents()
+    // public async Task LoadAllProduct()
     // {
-    //     var data = await ParentService.GetAllAsync();
-    //     AllParents.Clear();
+    //     var data = await ProductReponsitory.GetAllProduct();
+    //     AllProduct.Clear();
 
     //     if (data is null) return;
     //     foreach (var item in data)
     //     {
-    //         AllParents.Add(item);
+    //         AllProduct.Add(item);
     //     }
     // }
 
