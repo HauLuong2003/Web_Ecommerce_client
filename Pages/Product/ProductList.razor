@@ -1,4 +1,5 @@
 ﻿@page "/product-list"
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -11,12 +12,12 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header"></div>
-                            @*    @if (!AllProduct.Any())
+                            @if (productList == null || !productList.Any())
                             {
-                                <p><em>Loading Parents...</em></p>
+                                <div class="alert alert-info">There are no products available.</div>
                             }
-                            @if (AllProduct.Any())
-                            { *@
+                            else
+                            {
                                 <div class="card-body">
                                     <table class="table table-striped table-hover">
                                         <thead>
@@ -26,38 +27,37 @@
                                                 <th>Quantity</th>
                                                 <th>Image</th>
                                                 <th>Price</th>
-                                                <th>Brand</th>
+                                                @* <th>Brand</th> *@
                                                 <th>Creat_at</th>
+                                                <th>Update_at</th>
                                                 <th>Edit</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @*      @foreach (var product in AllProduct)
+                                         @foreach (Product product in productList)
                                         {
-                                            <tr>
-                                           <td>@product.Id</td>
-                                        <td>@product.FirstName</td>
-                                        <td>@product.MiddleName</td>
-                                        <td>@product.LastName</td>
-                                        <td>@product.EmailAddress</td>
-                                        <td>@product.PhoneNumber</td>
-                                        <td>@product.Country.Name</td>
+                                         <tr>
+                                         <td>@product.PId</td>
+                                        <td>@product.Name</td>
+                                        <td>@product.Quantity</td>
+                                        <img src="@product.Image1" alt="Product Image" style="max-width: 100px; max-height: 100px;" />
+                                          <td>@product.Prices.FirstOrDefault(p => p.PId == product.PId)?.Price1.ToString()VND</td>
+                                       @*  <td>@product.Brand?.BrandName</td> *@
+                                        <td>@product.CreateAt</td>
+                                        <td>@product.UpdateAt</td>
                                                 <td>
-                                                        <a class="btn btn-success" href="/product/edit/@student.Id"> Edit </a>
+                                                        <a class="btn btn-success" href="/Product/edit/@product.PId"> Edit </a>
                                                 </td>
                                                 <td>
-                                                     <a class="btn btn-danger" href="/product/delete/@student.Id"> Delete </a>
+                                                        <a class="btn btn-danger" href="/Product/delete/@product.PId"> Delete </a>
                                                 </td>
                                             </tr>
-                                        } *@
+                                        }
                                         </tbody>
                                     </table>
                                 </div>
-                            
-                            @*    else
-                            {
-                            <div class="alert alert-info"> There is not products List Availlable</div>
-                            } *@
+                            }
+                             
                         </div>
                     </div>
                 </div>
@@ -66,34 +66,19 @@
     </div>
 </div>
 @code {
-      public List<Product> product { get; set; } = new();
+    public Brand brand { set; get; } = new();
+    public List<Product>? productList { set; get; } = new();
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProducts();
 
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     await LoadAllProduct();
-    // }
+    }
 
-    // public async Task LoadAllProduct()
-    // {
-    //     var data = await ProductReponsitory.GetAllProduct();
-    //     AllProduct.Clear();
+    private async Task LoadProducts()
+    {
+        productList = await ClientService.GetAllProduct();
 
-    //     if (data is null) return;
-    //     foreach (var item in data)
-    //     {
-    //         AllProduct.Add(item);
-    //     }
-    // }
+    }
 
-    // private void EditStudent(int id)
-    // {
-    //     navigation.NavigateTo($"/student/edit/{id}");
-    // }
-
-    // private async Task DeleteStudent(int Id)
-    // {
-    //     var result = await ParentService.DeleteAsync(Id);
-    //     await LoadAllParents();
-    // }
 }
 

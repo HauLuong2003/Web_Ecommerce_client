@@ -131,6 +131,14 @@
               "target": "Package",
               "version": "[8.0.7, )",
               "autoReferenced": true
+            },
+            "Syncfusion.Blazor.Navigations": {
+              "target": "Package",
+              "version": "[21.1.37, )"
+            },
+            "Syncfusion.Blazor.Themes": {
+              "target": "Package",
+              "version": "[21.1.37, )"
             }
           },
           "imports": [
