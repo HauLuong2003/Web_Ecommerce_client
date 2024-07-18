@@ -1,15 +1,13 @@
 ﻿using Ecommerce_Models.Model.Entity;
 using Ecommerce_Models.Response;
 using Ecommerce_Models.Service;
-using System.Net.Http;
-using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using static System.Net.WebRequestMethods;
 
 namespace Web_Ecommerce_Cilent.Service
 {
-    public class ClientService(HttpClient httpClient): IProduct
+    public class ProductService(HttpClient httpClient): IProduct
     {
         
         private const string BaseUrl = "api/Product";
@@ -56,10 +54,9 @@ namespace Web_Ecommerce_Cilent.Service
         public async Task<List<Product>> GetAllProduct()
         {
             var response = await httpClient.GetAsync($"{BaseUrl}/getAll");
-            //if (!response.IsSuccessStatusCode) return null!;
+            if (!response.IsSuccessStatusCode) return null!;
             var result = await response.Content.ReadAsStringAsync();
             return DeserializeJsonStringList<Product>(result).ToList();
-            //return await httpClient.GetFromJsonAsync <List<Product>>($"{BaseUrl}/getAll") ?? [];
 
         }
 

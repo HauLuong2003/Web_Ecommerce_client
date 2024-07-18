@@ -757,6 +757,46 @@
       "PackagePath": "staticwebassets\\dist\\js\\pages\\dashboard3.js"
     },
     {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\avatar.png",
+      "PackagePath": "staticwebassets\\images\\avatar.png"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\avatar2.png",
+      "PackagePath": "staticwebassets\\images\\avatar2.png"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\image_1.jpg",
+      "PackagePath": "staticwebassets\\images\\image_1.jpg"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\logo-acer-149x40.png",
+      "PackagePath": "staticwebassets\\images\\logo-acer-149x40.png"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\logo-asus-149x40.png",
+      "PackagePath": "staticwebassets\\images\\logo-asus-149x40.png"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\logo-dell-149x40.png",
+      "PackagePath": "staticwebassets\\images\\logo-dell-149x40.png"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\logo-hp-149x40-1.png",
+      "PackagePath": "staticwebassets\\images\\logo-hp-149x40-1.png"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\logo-lenovo-149x40.png",
+      "PackagePath": "staticwebassets\\images\\logo-lenovo-149x40.png"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\logo-macbook-149x40.png",
+      "PackagePath": "staticwebassets\\images\\logo-macbook-149x40.png"
+    },
+    {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\images\\logo-msi-149x40.png",
+      "PackagePath": "staticwebassets\\images\\logo-msi-149x40.png"
+    },
+    {
       "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

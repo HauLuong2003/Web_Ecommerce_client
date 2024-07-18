@@ -8,47 +8,50 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <p><a class="btn btn-success float-end" href="/add-product"> Add New Product </a></p>
+                    <p><a class="btn btn-success float-end" href="/add-product"> Add New Brand </a></p>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header"></div>
-
-                            <div class="card-body">
-                                <table class="table table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Logo</th>
-       
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @*      @foreach (var product in AllProduct)
-                                        {
-                                        <tr>
-                                        <td>@product.Id</td>
-                                        <td>@product.FirstName</td>
-                                        <td>@product.MiddleName</td>
-                                        <td>@product.LastName</td>
-                                        <td>@product.EmailAddress</td>
-                                        <td>@product.PhoneNumber</td>
-                                        <td>@product.Country.Name</td>
-                                        <td>
-                                        <a class="btn btn-success" href="/product/edit/@student.Id"> Edit </a>
-                                        </td>
-                                        <td>
-                                        <a class="btn btn-danger" href="/product/delete/@student.Id"> Delete </a>
-                                        </td>
-                                        </tr>
-                                        } *@
-                                    </tbody>
-                                </table>
-                            </div>
-                            @*    else
+                            @if (brandList == null || !brandList.Any())
                             {
-                            <div class="alert alert-info"> There is not products List Availlable</div>
-                            } *@
+                                <div class="alert alert-info">There are no Brands available.</div>
+                            }
+                            else
+                            {
+                                <div class="card-body">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Name</th>
+                                                <th>Logo</th>
+                                                <th>Edit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (Brand brand in brandList)
+                                            {
+                                                <tr>
+                                                    <td>@brand.BrandId</td>
+                                                    <td>@brand.BrandName</td>
+
+                                                    <td>
+                                                        <img src="@brand.BrandLogo" alt="Product Image" style="max-width: 100px; max-height: 100px;" />
+                                                    </td>
+
+                                                    <td>
+                                                        <a class="btn btn-success" href="/Product/edit/@brand.BrandId"> Edit </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-danger" href="/Product/delete/@brand.BrandId"> Delete </a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -57,5 +60,11 @@
     </div>
 </div>
 @code {
+    public List<Brand> brandList { get; set; } = new();
 
+    protected override async Task OnInitializedAsync()
+    {
+        brandList = await brandService.GetAllBrands();
+
+    }
 }

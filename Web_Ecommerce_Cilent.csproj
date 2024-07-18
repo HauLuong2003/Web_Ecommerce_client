@@ -15,8 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Layout\Customer\" />
-    <Folder Include="wwwroot\images\" />
-    <Folder Include="Pages\Brand\" />
   </ItemGroup>
 
   <ItemGroup>

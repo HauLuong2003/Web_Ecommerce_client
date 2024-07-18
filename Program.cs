@@ -9,7 +9,10 @@ using Web_Ecommerce_Cilent.Service;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
-builder.Services.AddScoped<IProduct, ClientService>();
+builder.Services.AddScoped<IProduct, ProductService>();
+builder.Services.AddScoped<IBrand, BrandService>();
+builder.Services.AddScoped<IUser, UserService>();
+
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7095/") });
 
