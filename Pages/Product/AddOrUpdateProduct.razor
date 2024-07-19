@@ -30,10 +30,9 @@
                     </div>
                     <div class="form-group">
                         <label for="inputStatus">Featured</label>
-                            <InputSelect for="Featured" @bind-Value="product.Featured" class="form-control custom-select">
-                                <option value="">Select </option>
-                                <option>True</option>
-                                 <option>False</option>
+                            <InputSelect for="Featured" @bind-Value="product.Featured" class="form-control custom-select">                            
+                                 <option value="true">True</option>
+    <option value="false">False</option>
                         </InputSelect>
                     </div>
                     <div class="form-group">
@@ -164,10 +163,8 @@
                             <label for="Weight">Weight</label>
                             <InputText @bind-Value="detail.Weight" class="form-control" />
                             
-                    </div>
-                      
+                    </div>                      
                 </div>
-
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -176,11 +173,9 @@
     </div>
         <div class="row">
             <div class="col-12">
-                @if (ShowSaveButton)
-                {
-                    <input type="submit" value="Create new Product" class="btn btn-success float-right">
-                }
-                <BusyButton ShowBusyButton="ShowBusyButton"></BusyButton>
+
+                <input type="submit" value="Create new Product" class="btn btn-success float-right">
+                
                 <a href="/product-list" class="btn btn-secondary">Cancel</a>
 
             </div>
@@ -188,37 +183,64 @@
     </EditForm>
 
  </section>
- <MessageDialog @ref="messageDialog"></MessageDialog>
+
 @code {
     public Product product { get; set; } = new();
     public Price price { get; set; } = new();
     public List<Brand> brand { get; set; } = new List<Brand> ();
     public Detail detail { get; set; } = new();
     string ImageUploadMessage = "";
-    MessageDialog? messageDialog;
+
     protected override async Task OnInitializedAsync()
     {
         brand = await brandService.GetAllBrands();
     }
-    async Task UploadImage1(InputFileChangeEventArgs e)
-    {
-        var file = e.File;
-        if (file != null)
-        {
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-            var fileName = Path.GetFileName(file.Name);
-            var filePath = Path.Combine(uploadsFolder, fileName);
 
-            // Save the image path to the database
-            var imagePath = "/images/" + fileName;
-            product.Image1 = imagePath;
-            return;
+    public async Task UploadImage1(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            var file = e.File;
+            if (file != null)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                var fileName = Path.GetFileName(file.Name);
+                var filePath = Path.Combine(uploadsFolder, fileName);
+                    
+                // Create the directory if it doesn't exist
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.OpenReadStream().CopyToAsync(stream);
+                }
+
+                // Save the image path to the product
+                var imagePath = "images/" + fileName;
+                product.Image1 = imagePath;
+                ImageUploadMessage = "Image uploaded successfully";
+            }
+            else
+            {
+                ImageUploadMessage = "No file selected";
+            }
         }
-        ImageUploadMessage = "Image";
-        return;
+        catch (Exception ex)
+        {
+            // Handle exception and log error
+            ImageUploadMessage = "Image upload failed: " + ex.Message;
+        }
 
     }
-    async Task UploadImage2(InputFileChangeEventArgs e)
+    public async Task UploadImage2(InputFileChangeEventArgs e)
     {
         var file = e.File;
         if (file != null)
@@ -226,64 +248,61 @@
             var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
             var fileName = Path.GetFileName(file.Name);
             var filePath = Path.Combine(uploadsFolder, fileName);
+            using var stream = new FileStream(filePath, FileMode.Create);
+            await file.OpenReadStream().CopyToAsync(stream);
 
-            // Save the image path to the database
-            var imagePath = "/images/" + fileName;
+            // Save the image path to the product
+            var imagePath = "images/" + fileName;
             product.Image2 = imagePath;
+            ImageUploadMessage = "Image uploaded successfully";
             return;
         }
-        ImageUploadMessage = "Image";
-        return;
+        ImageUploadMessage = "Image upload failed";
 
     }
-    async Task UploadImage3(InputFileChangeEventArgs e)
+    public async Task UploadImage3(InputFileChangeEventArgs e)
     {
         var file = e.File;
         if (file != null)
         {
             var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-           var fileName = Path.GetFileName(file.Name);           
+            var fileName = Path.GetFileName(file.Name);
             var filePath = Path.Combine(uploadsFolder, fileName);
+            using var stream = new FileStream(filePath, FileMode.Create);
+            await file.OpenReadStream().CopyToAsync(stream);
 
-            // Save the image path to the database
-            var imagePath = "/images/" + fileName;
+            // Save the image path to the product
+            var imagePath = "images/" + fileName;
             product.Image3 = imagePath;
+            ImageUploadMessage = "Image uploaded successfully";
             return;
         }
-        ImageUploadMessage = "Image";
-        return;
+        ImageUploadMessage = "Image upload failed";
 
     }
-    async Task HandleSaveProduct()
+    public async Task HandleSaveProduct()
     {
-        ShowSaveButton = false;
-        ShowBusyButton = !ShowSaveButton;
         if (string.IsNullOrEmpty(product.Image1))
         {
-            messageDialog!.SetDialogValues("Warning", "you need to choose image");
-            SetMessageDialog();
+            ImageUploadMessage = "Please upload at least one image";
             return;
         }
-        var (flag, message) = await ClientService.AddProduct(product);
+        var addProductDto = new AddProductDTO
+            {
+                Product = product,
+                Detail = detail,
+                Price = price
+            };
+        var (flag, message) = await ClientService.AddProduct(addProductDto);
         if (flag)
         {
-            messageDialog!.SetDialogValues("success", message);
+            Navigation.NavigateTo("/product-list");
         }
         else
         {
-            messageDialog!.SetDialogValues("danger", message);
+            return;
         }
-        SetMessageDialog();
         return;
     }
 
-    public async void SetMessageDialog()
-    {
-        await messageDialog!.ShowMessage();
-        ShowBusyButton = false;
-        ShowSaveButton = true;
-        StateHasChanged();
-    }
-    public bool ShowBusyButton { get; set; }
-    public bool ShowSaveButton { get; set; } = true;
 }

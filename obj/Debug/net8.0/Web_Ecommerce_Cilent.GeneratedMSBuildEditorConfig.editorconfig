@@ -46,16 +46,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Order/OrderList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcT3JkZXJMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Product/AddOrUpdateProduct.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxBZGRPclVwZGF0ZVByb2R1Y3QucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Product/BusyButton.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxCdXN5QnV0dG9uLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Product/MessageDialog.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxNZXNzYWdlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Product/ProductList.razor]
@@ -64,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/User/AddOrUpdateUser.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxBZGRPclVwZGF0ZVVzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/User/AdminList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxBZG1pbkxpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/User/UserList.razor]

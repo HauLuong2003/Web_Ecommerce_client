@@ -1,4 +1,5 @@
 ﻿using Ecommerce_Models.Model.Entity;
+using Ecommerce_Models.Model.Request;
 using Ecommerce_Models.Response;
 using Ecommerce_Models.Service;
 using System.Text.Json;
@@ -26,17 +27,17 @@ namespace Web_Ecommerce_Cilent.Service
             };
         }
 
-        public async Task<ServiceResponse> AddProduct(Product model)
+        public async Task<ServiceResponse> AddProduct(AddProductDTO addProduct)
         {
-            var response = await httpClient.PostAsync(BaseUrl,GenerateStringContent(SerializeObj(model)));
+            var response = await httpClient.PostAsync(BaseUrl,GenerateStringContent(SerializeObj(addProduct)));
+           
             //read response
-            if (!response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode )
             {
-                return new ServiceResponse(false, "Error occured . Try later.");
+                return new ServiceResponse(false, "Error ");
             }
             var apiResponse =await response.Content.ReadAsStringAsync();
             return DeserializeJsonString<ServiceResponse>(apiResponse);
-
         }
         public async Task<List<Product>> GetProductfeatured(bool featuredProducts)
         {

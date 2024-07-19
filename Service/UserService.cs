@@ -55,5 +55,13 @@ namespace Web_Ecommerce_Cilent.Service
         {
             throw new NotImplementedException();
         }
+
+        public async Task<List<User>> GetAllAdmin()
+        {
+            var response = await httpClient.GetAsync($"{BaseUrl}/Admin");
+            if (!response.IsSuccessStatusCode) return null!;
+            var result = await response.Content.ReadAsStringAsync();
+            return DeserializeJsonStringList<User>(result).ToList();
+        }
     }
 }
