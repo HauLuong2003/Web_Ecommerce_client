@@ -69,7 +69,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Image Product</label>
+                            <label for="exampleInputFile ">
+                               Upload Image
+                            </label>
                         <div class="input-group">
                             <div class="custom-file">
                                     <InputFile type="file" class="custom-file-input" OnChange="UploadImage2" />
@@ -81,7 +83,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Image Product</label>
+                            <label for="exampleInputFile">
+                                Upoad Image
+                            </label>
                         <div class="input-group">
                             <div class="custom-file">
                                     <InputFile type="file" class="custom-file-input" OnChange="UploadImage3" id="image3" />
@@ -195,104 +199,104 @@
     {
         brand = await brandService.GetAllBrands();
     }
-
+    public IBrowserFile? file1;
     public async Task UploadImage1(InputFileChangeEventArgs e)
     {
-        try
+        file1 = e.File;
+        if (file1 != null)
         {
-            var file = e.File;
-            if (file != null)
-            {
-                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-                if (!Directory.Exists(uploadsFolder))
-                {
-                    Directory.CreateDirectory(uploadsFolder);
-                }
-
-                var fileName = Path.GetFileName(file.Name);
-                var filePath = Path.Combine(uploadsFolder, fileName);
-                    
-                // Create the directory if it doesn't exist
-                if (!Directory.Exists(uploadsFolder))
-                {
-                    Directory.CreateDirectory(uploadsFolder);
-                }
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await file.OpenReadStream().CopyToAsync(stream);
-                }
-
-                // Save the image path to the product
-                var imagePath = "images/" + fileName;
-                product.Image1 = imagePath;
-                ImageUploadMessage = "Image uploaded successfully";
-            }
-            else
-            {
-                ImageUploadMessage = "No file selected";
-            }
+            ImageUploadMessage = "Image uploaded successfully";
         }
-        catch (Exception ex)
+        else
         {
-            // Handle exception and log error
-            ImageUploadMessage = "Image upload failed: " + ex.Message;
+            ImageUploadMessage = "No file selected";
         }
-
     }
+    public async Task<string> TaskSaveImage1()
+    {
+        if (file1 != null)
+        {
+            var content = new MultipartFormDataContent();
+            var fileContent = new StreamContent(file1.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024)); // Giới hạn 10MB
+            content.Add(fileContent,"file", file1.Name);
+            var  response = await imageService.AddImage(content);
+            return response;
+        }
+        else
+        {
+            return null!;
+        }
+    }
+    public IBrowserFile file2;
     public async Task UploadImage2(InputFileChangeEventArgs e)
     {
-        var file = e.File;
-        if (file != null)
+        file2 = e.File;
+        if (file2 != null)
         {
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-            var fileName = Path.GetFileName(file.Name);
-            var filePath = Path.Combine(uploadsFolder, fileName);
-            using var stream = new FileStream(filePath, FileMode.Create);
-            await file.OpenReadStream().CopyToAsync(stream);
-
-            // Save the image path to the product
-            var imagePath = "images/" + fileName;
-            product.Image2 = imagePath;
             ImageUploadMessage = "Image uploaded successfully";
-            return;
+
         }
-        ImageUploadMessage = "Image upload failed";
+        else
+            ImageUploadMessage = "Image upload failed";
 
     }
+    //save image 2
+    public async Task<string> TaskSaveImage2()
+    {
+        if (file2 != null)
+        {
+            var content = new MultipartFormDataContent();
+            var fileContent = new StreamContent(file2.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024)); // Giới hạn 10MB
+            content.Add(fileContent, "file", file2.Name);
+            var response = await imageService.AddImage(content);
+            return response;
+        }
+        else
+        {
+            return null!;
+        }
+    }
+    public IBrowserFile file3;
     public async Task UploadImage3(InputFileChangeEventArgs e)
     {
-        var file = e.File;
-        if (file != null)
+        file3 = e.File;
+        if (file3 != null)
         {
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-            var fileName = Path.GetFileName(file.Name);
-            var filePath = Path.Combine(uploadsFolder, fileName);
-            using var stream = new FileStream(filePath, FileMode.Create);
-            await file.OpenReadStream().CopyToAsync(stream);
-
-            // Save the image path to the product
-            var imagePath = "images/" + fileName;
-            product.Image3 = imagePath;
             ImageUploadMessage = "Image uploaded successfully";
-            return;
         }
-        ImageUploadMessage = "Image upload failed";
+        else
+            ImageUploadMessage = "Image upload failed";
 
     }
-    public async Task HandleSaveProduct()
+    //save image 3
+    public async Task<string> TaskSaveImage3()
     {
-        if (string.IsNullOrEmpty(product.Image1))
+        if (file3 != null)
         {
-            ImageUploadMessage = "Please upload at least one image";
-            return;
+            var content = new MultipartFormDataContent();
+            var fileContent = new StreamContent(file3.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024)); // Giới hạn 10MB
+            content.Add(fileContent, "file", file3.Name);
+            var response = await imageService.AddImage(content);
+            return response;
         }
+        else
+        {
+            return null!;
+        }
+    }
+
+    public async Task HandleSaveProduct()
+    {      
+        product.Image1 = await TaskSaveImage1();
+        product.Image2 = await TaskSaveImage2();
+        product.Image3 = await TaskSaveImage3();
         var addProductDto = new AddProductDTO
             {
                 Product = product,
                 Detail = detail,
                 Price = price
             };
+    
         var (flag, message) = await ClientService.AddProduct(addProductDto);
         if (flag)
         {
@@ -302,7 +306,7 @@
         {
             return;
         }
-        return;
+        
     }
 
 }
