@@ -54,7 +54,7 @@ namespace Web_Ecommerce_Cilent.Service
 
         public async Task<List<Product>> GetAllProduct()
         {
-            var response = await httpClient.GetAsync($"{BaseUrl}/getAll");
+            var response = await httpClient.GetAsync($"{BaseUrl}");
             if (!response.IsSuccessStatusCode) return null!;
             var result = await response.Content.ReadAsStringAsync();
             return DeserializeJsonStringList<Product>(result).ToList();

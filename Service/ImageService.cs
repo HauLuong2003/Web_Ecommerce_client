@@ -35,12 +35,12 @@ namespace Web_Ecommerce_Cilent.Service
 
             // Read the JSON response as a string
             var apiResponse = await response.Content.ReadAsStringAsync();
-            
-            // Deserialize the JSON response to an object with the image path
-            var imageResponse = DeserializeJsonString<ImageResponse>(apiResponse);
 
-            // Return the image path
-            return imageResponse?.ImagePath ?? string.Empty;
+            // Deserialize the JSON response to an object with the image path
+            var imagePath=  DeserializeJsonString<ImageResponse>(apiResponse);
+            return imagePath?.ImagePath ?? string.Empty;
+
+
         }
     }
 

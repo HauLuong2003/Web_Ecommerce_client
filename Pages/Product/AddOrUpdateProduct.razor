@@ -32,7 +32,7 @@
                         <label for="inputStatus">Featured</label>
                             <InputSelect for="Featured" @bind-Value="product.Featured" class="form-control custom-select">                            
                                  <option value="true">True</option>
-    <option value="false">False</option>
+                                <option value="false">False</option>
                         </InputSelect>
                     </div>
                     <div class="form-group">
@@ -48,9 +48,9 @@
                             <InputSelect for="brandName" @bind-Value="product.BrandId" class="form-control custom-select">
                                 <option value="">Select Brand</option>
                                 @foreach (Brand brands in brand)
-                                    {
+                                {
                                         <option value="@brands.BrandId">@brands.BrandName</option>
-                                    }
+                                }
                                 
                         </InputSelect>
                     </div>
@@ -191,7 +191,7 @@
 @code {
     public Product product { get; set; } = new();
     public Price price { get; set; } = new();
-    public List<Brand> brand { get; set; } = new List<Brand> ();
+    public List<Brand> brand { get; set; } = new List<Brand>();
     public Detail detail { get; set; } = new();
     string ImageUploadMessage = "";
 
