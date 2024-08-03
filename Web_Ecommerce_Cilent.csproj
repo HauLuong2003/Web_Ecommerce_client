@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Layout\Customer\MainLayout.razor" />
+    <Content Remove="Layout\Customer\Footer.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Layout\Customer\MainLayout.razor" />
+    <None Include="Layout\Customer\Footer.razor" />
     <None Include="wwwroot\assets\fonts\feather\fonts\Feather.svg" />
     <None Include="wwwroot\assets\fonts\fontawesome_5\webfonts\fa-brands-400.svg" />
     <None Include="wwwroot\assets\fonts\fontawesome_5\webfonts\fa-brands-400.woff2" />
@@ -849,14 +849,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Layout\Customer\MainLayout.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Layout\Customer\MainLayout.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="wwwroot\assets\vendors\quill\node_modules\eventemitter3\package.json" />
   </ItemGroup>
 
@@ -1054,6 +1046,14 @@
     <TypeScriptCompile Include="wwwroot\assets\vendors\swiper\types\swiper-events.d.ts" />
     <TypeScriptCompile Include="wwwroot\assets\vendors\swiper\types\swiper-options.d.ts" />
     <TypeScriptCompile Include="wwwroot\assets\vendors\typed.js\index.d.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Layout\Customer\Footer.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Layout\Customer\Footer.razor" />
   </ItemGroup>
 
 </Project>

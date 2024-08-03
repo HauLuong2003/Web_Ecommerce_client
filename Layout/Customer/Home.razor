@@ -1,6 +1,47 @@
-﻿
-<!-- best deals -->
+﻿@inherits LayoutComponentBase
 
+<!-- best deals -->
+<NavBar />
+<body>
+<div id="main-search" class="bg-gray-200 collapse">
+    <div class="container position-relative">
+
+        <!-- close button -->
+        <div class="position-absolute top-0 end-0 p-2 d-inline-grid gap-auto-2">
+            <span class="text-muted">close</span>
+            <button class="btn-close p-2" data-bs-toggle="collapse" data-bs-target="#main-search"></button>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto py-5">
+
+                <!-- form -->
+                <form method="get" action="#" class="bg-white shadow p-2 mt-5 mt-lg-3 rounded d-flex">
+                    <!-- input -->
+                    <input required="" type="text" name="keyword" class="form-control shadow-none border-0" placeholder="search..." aria-label="search..." aria-describedby="button-search">
+                    <!-- submit button -->
+                    <button type="submit" class="btn btn-primary px-4 shadow-none" id="button-search">
+                        <svg width="18px" height="18px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span class="d-none d-md-inline-block">search</span><!-- hidden on mobile -->
+                    </button>
+                </form>
+
+                <!-- recent searches -->
+                <ul class="list-inline small text-muted my-2">
+                    <li class="list-inline-item fw-medium">Recent:</li>
+                    <li class="list-inline-item"><a href="#!" class="link-muted">white headphone</a></li>
+                    <li class="list-inline-item"><a href="#!" class="link-muted">panasonic ws-100</a></li>
+                    <li class="list-inline-item"><a href="#!" class="link-muted">libratone</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
 <section>
     <div class="container">
 
@@ -12,7 +53,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                     </svg>
                 </span>
-                <h2 class="mb-0"><b>30% OFF</b> this week</h2>
+               @*  <h2 class="mb-0"><b></b> this week</h2> *@
             </div>
         </div>
 
@@ -29,7 +70,7 @@
                     <div class="card-body py-4">
                         <a href="shop-product-single.html" class="text-decoration-none stretched-link text-gray-700">Sport Speakers CX</a>
                         <div class="d-block">
-                            <del class="text-muted fw-normal">$76.99</del>
+
                             <span class="text-dark fw-medium">$56.99</span>
                         </div>
                     </div>
@@ -159,7 +200,10 @@
         </div>
 
     </div>
+      
 </section>
+</body>
 @code {
 
 }
+
