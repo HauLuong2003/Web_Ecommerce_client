@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Comment\" />
+    <Folder Include="Pages\Admin\Comment\" />
     <Folder Include="wwwroot\assets\svg\" />
   </ItemGroup>
 

@@ -54,44 +54,56 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEN1c3RvbWVyXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Account/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5yYXpvcg==
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Admin/Brand/BrandAddAndUpdate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQnJhbmRcQnJhbmRBZGRBbmRVcGRhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Account/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5yYXpvcg==
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Admin/Brand/BrandList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQnJhbmRcQnJhbmRMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Brand/BrandAddAndUpdate.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnJhbmRcQnJhbmRBZGRBbmRVcGRhdGUucmF6b3I=
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Admin/Order/OrderList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJcT3JkZXJMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Brand/BrandList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnJhbmRcQnJhbmRMaXN0LnJhem9y
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Admin/Product/AddOrUpdateProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdFxBZGRPclVwZGF0ZVByb2R1Y3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Order/OrderList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcT3JkZXJMaXN0LnJhem9y
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Admin/Product/ProductList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdFxQcm9kdWN0TGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Product/AddOrUpdateProduct.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxBZGRPclVwZGF0ZVByb2R1Y3QucmF6b3I=
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Admin/User/AddOrUpdateUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlclxBZGRPclVwZGF0ZVVzZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Product/ProductList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxQcm9kdWN0TGlzdC5yYXpvcg==
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Admin/User/AdminList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlclxBZG1pbkxpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/User/AddOrUpdateUser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxBZGRPclVwZGF0ZVVzZXIucmF6b3I=
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Admin/User/UserList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlclxVc2VyTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/User/AdminList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxBZG1pbkxpc3QucmF6b3I=
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Customer/Account/Account-Password.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcQWNjb3VudFxBY2NvdW50LVBhc3N3b3JkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/User/UserList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxVc2VyTGlzdC5yYXpvcg==
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Customer/Account/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcQWNjb3VudFxMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Customer/Account/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcQWNjb3VudFxSZWdpc3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Customer/Cart/Cart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcQ2FydFxDYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/Pages/Customer/Service.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcU2VydmljZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project_C\#/Web_Ecommerce_Server/Web_Ecommerce_Cilent/_Imports.razor]
