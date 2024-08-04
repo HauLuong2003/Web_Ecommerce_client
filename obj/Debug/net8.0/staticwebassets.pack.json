@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
     },
     {
+      "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\Home.html",
+      "PackagePath": "staticwebassets\\Home.html"
+    },
+    {
       "Id": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\assets\\css\\theme.css",
       "PackagePath": "staticwebassets\\assets\\css\\theme.css"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cQgo3/xMjLLeJgC0QtwJ9lmI+Th5kiiLg4TwTiuP9cM=",
+  "Hash": "EBBjlN8STjgTgidpGhdmf7dWl42DsJrnWNBM7rxdkXM=",
   "Source": "Web_Ecommerce_Cilent",
   "BasePath": "/",
   "Mode": "Root",
@@ -34861,6 +34861,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\js\\pages\\dashboard3.js"
+    },
+    {
+      "Identity": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\Home.html",
+      "SourceId": "Web_Ecommerce_Cilent",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "Home.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Home.html"
     },
     {
       "Identity": "D:\\Project_C#\\Web_Ecommerce_Server\\Web_Ecommerce_Cilent\\wwwroot\\index.html",
