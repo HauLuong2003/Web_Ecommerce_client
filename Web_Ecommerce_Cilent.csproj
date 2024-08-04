@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Layout\Customer\Footer.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" PrivateAssets="all" />
     <PackageReference Include="Syncfusion.Blazor.Navigations" Version="21.1.37" />
@@ -27,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Layout\Customer\Footer.razor" />
     <None Include="wwwroot\assets\fonts\feather\fonts\Feather.svg" />
     <None Include="wwwroot\assets\fonts\fontawesome_5\webfonts\fa-brands-400.svg" />
     <None Include="wwwroot\assets\fonts\fontawesome_5\webfonts\fa-brands-400.woff2" />
@@ -1046,14 +1041,6 @@
     <TypeScriptCompile Include="wwwroot\assets\vendors\swiper\types\swiper-events.d.ts" />
     <TypeScriptCompile Include="wwwroot\assets\vendors\swiper\types\swiper-options.d.ts" />
     <TypeScriptCompile Include="wwwroot\assets\vendors\typed.js\index.d.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Layout\Customer\Footer.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Layout\Customer\Footer.razor" />
   </ItemGroup>
 
 </Project>
