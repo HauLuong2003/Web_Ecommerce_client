@@ -1,0 +1,289 @@
+﻿@page "/Checkout"
+
+<!-- Page title -->
+<section class="bg-gray-200 py-6">
+    <div class="container">
+
+        <h1 class="h2 mb-0">Checkout</h1>
+        <a href="shop-cart.html" class="link-primary text-decoration-none">
+            <svg class="transform-flip-x-rtl" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>
+            </svg>
+            <span>back to cart</span>
+        </a>
+
+    </div>
+</section>
+<section class="bg-gray-200 pt-0">
+    <div class="container">
+
+        <div class="row g-4">
+            <div class="order-2 order-lg-1 col-lg-7 mb-5">
+
+                <form class="form-validate" method="post" action="#">
+
+                    <!-- shipping address -->
+                    <div class="bg-white shadow-xs p-4 mb-5 rounded">
+
+                        <h2 class="h5 border-bottom border-light mb-4 pb-4 text-dark">
+                            Shipping Address
+                        </h2>
+
+                        <div class="row g-3">
+
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control shadow-none" id="shipping__first_name" name="shipping[first_name]" placeholder="First Name">
+                                    <label for="shipping__first_name">Full Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control shadow-none" id="shipping__last_name" name="shipping[last_name]" placeholder="Last Name">
+                                    <label for="shipping__last_name">Email</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control shadow-none" id="shipping__phone_number" name="shipping[phone_number]" placeholder="Phone Number">
+                                    <label for="shipping__phone_number">Phone Number</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12">
+                                <div class="form-floating my-3">
+                                    <input type="text" class="form-control shadow-none" id="shipping__address_1" name="shipping[address_1]" placeholder="Street and Number, P.O. Box, c/o.">
+                                    <label class="w-100 text-truncate" for="shipping__address_1">Street and Number (address)</label>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- payment method -->
+                    <div class="bg-white shadow-xs p-4 mb-5 rounded">
+
+                        <h2 class="h5 border-bottom border-light pb-4 mb-3 text-dark">
+                            Payment Method
+                            <span class="fs-6 d-block text-success fw-normal">
+                                Secure &amp; encrypted transactions.
+                            </span>
+                        </h2>
+
+                        <div class="py-3">
+                            <div class="form-check">
+                                <input class="form-check-input form-check-input-primary" type="radio" id="payment__1" name="payment__method" value="1">
+                                <label class="form-check-label user-select-none" for="payment__1">
+                                    Cash on Delivery
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="py-3">
+                            <div class="form-check">
+                                <input class="form-check-input form-check-input-primary" type="radio" id="payment__2" name="payment__method" value="2" checked="">
+                                <label class="form-check-label user-select-none" for="payment__2">
+                                    Credit Card
+                                </label>
+                            </div>
+
+                            <div class="row g-2 mt-3">
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control shadow-none" id="payment__card_number" name="payment[card_number]" placeholder="Card Number">
+                                        <label for="payment__card_number">Card Number</label>
+                                        <span class="px-3 text-gray-400 position-absolute top-0 end-0 mt-3">
+                                            <svg width="22px" height="22px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47 47" fill="currentColor">
+                                                <path d="M23.498,10.141c-2.094,0-3.796,1.709-3.796,3.807v3.706h7.596v-3.706C27.298,11.851,25.593,10.141,23.498,10.141z"></path>
+                                                <path d="M3.431,0v23.928C3.431,36.67,23.5,47,23.5,47s20.069-10.33,20.069-23.072V0H3.431z M34.351,30.148c0,1.571-1.286,2.856-2.855,2.856h-15.99c-1.57,0-2.855-1.285-2.855-2.856v-9.64c0-1.569,1.286-2.855,2.855-2.855h0.387v-3.706c0-4.198,3.413-7.613,7.606-7.613c4.195,0,7.609,3.415,7.609,7.613v3.706h0.388c1.57,0,2.855,1.286,2.855,2.855V30.148z"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-5">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control shadow-none" id="payment__card_name" name="payment[card_name]" placeholder="Cardholder Name">
+                                        <label for="payment__card_name">Cardholder Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control shadow-none" id="payment__card_expire" name="payment[card_expire]" placeholder="MM / YY">
+                                        <label for="payment__card_expire">MM / YY</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control shadow-none" id="payment__card_cvv" name="payment[card_cvv]" placeholder="CVV">
+                                        <label for="payment__card_cvv">CVV</label>
+                                        <span class="px-3 text-gray-400 position-absolute top-0 end-0 mt-3" data-html="true" data-bs-toggle="tooltip" data-bs-original-title="<div class='text-start'>3-digit security code on the back of your card.<br><br>(amex = 4-digits on the front)</div>">
+                                            <svg width="22px" height="22px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" fill="currentColor">
+                                                <path d="M256,0C134.684,0,36,96.243,36,215.851c0,68.63,33.021,132.639,88.879,173.334V492c0,7.938,4.694,15.124,11.962,18.313c7.225,3.173,15.704,1.809,21.577-3.593l82.144-75.555c5.17,0.355,10.335,0.535,15.438,0.535c121.316,0,220-96.243,220-215.851C476,96.13,377.21,0,256,0z M256,391.701c-6.687,0-13.516-0.376-20.298-1.118c-5.737-0.634-11.466,1.253-15.715,5.161    l-55.108,50.687v-67.726c0-6.741-3.396-13.029-9.034-16.726C105.848,329.2,76,274.573,76,215.851C76,118.886,156.747,40,256,40    s180,78.886,180,175.851C436,312.814,355.252,391.701,256,391.701z"></path>
+                                                <path d="M266,98.877h-70c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h70c16.542,0,30,13.458,30,30c0,16.542-13.458,30-30,30h-20c-11.046,0-20,8.954-20,20v28.793c0,11.046,8.954,20,20,20s20-8.954,20-20v-8.793c38.598,0,70-31.401,70-70C336,130.279,304.598,98.877,266,98.877z"></path>
+                                                <circle fill="#bbbebf" cx="246" cy="319.16" r="27"></circle>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- submit -->
+                    <div class="d-grid d-md-block mt-5">
+                        <button type="submit" class="btn btn-lg btn-primary px-4">
+                            <span>Place Order</span>
+                            <svg class="transform-flip-x-rtl" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- order summary -->
+            <div class="order-1 order-lg-2 col-lg-5 mb-5">
+
+                <div class="bg-white shadow-xs rounded p-4 text-gray-800">
+
+                    <h2 class="h5 border-bottom border-light mb-4 pb-4 text-dark">
+                        Order Summary
+                    </h2>
+
+                    <ul class="list-unstyled p-0 m-0">
+                        <li class="row align-items-center border-bottom border-light mb-4 pb-4">
+                            <div class="col-3 col-md-2">
+                                <div class="ratio ratio-1x1">
+                                    <span class="d-flex justify-content-center align-items-center">
+                                        <img class="h-100" src="../demo.files/images/products/speakers/thumb/7-min.jpg" alt="...">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="mb-0">1 &times; Sport Jabra Elite 75T</p>
+                                <p class="mb-0">
+                                    <span class="fw-medium">$32.99</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="row align-items-center border-bottom border-light mb-4 pb-4">
+                            <div class="col-3 col-md-2">
+                                <div class="ratio ratio-1x1">
+                                    <span class="d-flex justify-content-center align-items-center">
+                                        <img class="h-100" src="../demo.files/images/products/speakers/thumb/9-min.jpg" alt="...">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="mb-0">1 &times; Audiophile sport wireless react</p>
+                                <p class="mb-0">
+                                    <del class="fw-normal text-muted">$98.99</del>
+                                    <span class="fw-medium">$58.99</span>
+                                </p>
+                            </div>
+                        </li>
+
+                        <!-- gifts -->
+                        <li class="row align-items-center border-bottom border-light mb-4 pb-4">
+                            <span class="fw-medium">Gifts</span>
+                            <div class="d-flex align-items-center py-2">
+                                <img height="44" class="flex-none" src="../demo.files/images/products/speakers/gift-min.jpg" alt="...">
+                                <small class="d-block w-100 px-3">
+                                    <span class="link-secondary text-decoration-none">1 &times; Speaker bag, limited edition.</span>
+                                    <span class="d-block">Gift value: $16.00</span>
+                                </small>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="clearfix mb-3">
+                        Subtotal: <span class="float-end fw-medium">$161.98</span>
+                    </div>
+
+                    <div class="clearfix mb-3">
+                        Shipping: <span class="float-end fw-medium text-success">Free</span>
+
+                        <div class="px-2">
+                            <div class="form-check mt-3">
+                                <input class="form-check-input form-check-input-primary" name="shipping" type="radio" value="" id="shipping-1" checked>
+                                <label class="form-check-label user-select-none" for="shipping-1">
+                                    Free &ndash; standard delivery
+                                    <small class="d-block text-muted">5-8 business days</small>
+                                </label>
+                            </div>
+                            <div class="form-check mt-3">
+                                <input class="form-check-input form-check-input-primary" name="shipping" type="radio" value="" id="shipping-2">
+                                <label class="form-check-label user-select-none" for="shipping-2">
+                                    $10.99 &ndash; express delivery
+                                    <small class="d-block text-muted">2-3 business days</small>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="clearfix">
+                        Estimated taxes: <span class="float-end fw-medium">&ndash;</span>
+                    </div>
+
+                    <div class="clearfix mb-3 fw-medium">
+                        Total: <span class="float-end fw-medium">$161.98</span>
+                    </div>
+
+                    <a href="#coupon" data-bs-toggle="collapse" class="text-decoration-none d-inline-grid gap-auto-2 link-muted">
+                        <span class="group-switch">
+                            <svg class="transform-flip-x-rtl" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"></path>
+                                <path fill-rule="evenodd" d="M5.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
+                                <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"></path>
+                            </svg>
+                            <svg class="transform-flip-x-rtl" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
+                            </svg>
+                        </span>
+                        <span>Coupon / Gift Card</span>
+                    </a>
+
+                    <form id="coupon" method="post" action="#" class="collapse">
+                        <div class="input-group my-3">
+                            <input type="email" class="form-control form-control-sm shadow-none" placeholder="coupon / gift card" aria-label="coupon / gift card" aria-describedby="button-subscribe">
+                            <button type="submit" class="btn btn-sm btn-warning text-gray-700 shadow-none" id="button-subscribe">
+                                Add
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- help/chat trigger -->
+                <div class="py-3 text-end">
+                    <p class="d-inline-grid gap-auto-3">
+                        <span class="text-gray-600">
+                            Need help? <a href="#!" class="link-secondary text-dashed">Chat with us</a>
+                        </span>
+                        <svg class="text-gray-500" height="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.052 512.052" fill="currentColor">
+                            <path d="M208.026,16.026c-114.7,0-208,78.9-208,176c0,39.8,15.7,77.9,44.5,108.9l-39.8,39.8c-4.6,4.6-6,11.5-3.5,17.4c2.5,6,8.3,9.9,14.8,9.9h192c114.7,0,208-78.9,208-176S322.726,16.026,208.026,16.026z" />
+                            <path opacity="0.5" d="M467.526,428.926c28.8-30.9,44.5-69.1,44.5-108.9c0-49.8-24.6-94.9-64-126.9c-0.9,114.1-108.2,206.9-240,206.9h-89.2c34.5,56.9,104.6,96,185.2,96h192c6.5,0,12.3-3.9,14.8-9.9c2.5-6,1.1-12.9-3.5-17.4L467.526,428.926z" />
+                            <path fill="#ffffff" d="M304.026,144.026h-192c-8.8,0-16,7.2-16,16s7.2,16,16,16h192c8.8,0,16-7.2,16-16S312.826,144.026,304.026,144.026z" />
+                            <path fill="#ffffff" d="M240.026,208.026h-128c-8.8,0-16,7.2-16,16s7.2,16,16,16h128c8.8,0,16-7.2,16-16S248.826,208.026,240.026,208.026z" />
+                        </svg>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+@code {
+
+}
