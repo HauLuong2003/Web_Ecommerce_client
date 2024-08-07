@@ -1,39 +1,7 @@
 ﻿@page "/"
 <!-- offers -->
 <!-- Slider -->
-<section class="py-0">
-    <div class="embla" data-embla='{
-            "slidesToScroll":   1,
-            "loop":             true,
-            "dragFree":         false,
-            "autoPlay":         4000
-      }'>
-        <div class="embla__viewport">
-            <div class="embla__container vh-75">
-                <!-- vh-100, vh-75, vh-50, vh-25 -->
-
-                <a href="#!" class="embla__slide d-flex flex-column align-items-center justify-content-start text-white w-100 h-100 px-5 py-7 overlay-dark overlay-opacity-5 bg-cover" style="background-image: url(../demo.files/images/unsplash/product_various/william-bayreuther-pM4fy8F_FHo-unsplash.jpg)">
-                    <div class="d-inline-block text-start text-shadow-lg">
-                        <h1 class="display-1 fw-bold mb-0">Beats Pill</h1>
-                        <p class="text-end"><span class="text-warning">30% OFF</span> LIMITED EDITION</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Buttons -->
-        <button class="embla__button embla__button--prev embla__button--over embla__button--autohide" type="button" aria-label="Carousel Prev">
-            <svg class="text-white" stroke="#111111" fill="currentColor" width="30px" height="30px" viewBox="137.718 -1.001 366.563 643.999">
-                <path d="M428.36 12.5c16.67-16.67 43.76-16.67 60.42 0 16.67 16.67 16.67 43.76 0 60.42L241.7 320c148.25 148.24 230.61 230.6 247.08 247.08 16.67 16.66 16.67 43.75 0 60.42-16.67 16.66-43.76 16.67-60.42 0-27.72-27.71-249.45-249.37-277.16-277.08a42.308 42.308 0 0 1-12.48-30.34c0-11.1 4.1-22.05 12.48-30.42C206.63 234.23 400.64 40.21 428.36 12.5z"></path>
-            </svg>
-        </button>
-        <button class="embla__button embla__button--next embla__button--over embla__button--autohide" type="button" aria-label="Carousel Next">
-            <svg class="text-white" stroke="#111111" fill="currentColor" width="30px" height="30px" viewBox="0 0 238.003 238.003">
-                <path d="M181.776 107.719L78.705 4.648c-6.198-6.198-16.273-6.198-22.47 0s-6.198 16.273 0 22.47l91.883 91.883-91.883 91.883c-6.198 6.198-6.198 16.273 0 22.47s16.273 6.198 22.47 0l103.071-103.039a15.741 15.741 0 0 0 4.64-11.283c0-4.13-1.526-8.199-4.64-11.313z"></path>
-            </svg>
-        </button>
-    </div>
-</section>
+<FeatureProcduct />
 <section class="pt-0">
 <div class="container">
 
@@ -53,8 +21,6 @@
 
             <ul class="dropdown-menu min-w-auto shadow-lg p-3" aria-labelledby="dropdownMenuPopular">
                 <li><a class="dropdown-item active" href="#">Popular First</a></li>
-                <li><a class="dropdown-item" href="#">Newest First</a></li>
-                <li><a class="dropdown-item" href="#">Avg. Review</a></li>
                 <li><a class="dropdown-item" href="#">Price: High</a></li>
                 <li><a class="dropdown-item" href="#">Price: Low</a></li>
             </ul>
@@ -77,102 +43,29 @@
 
     </div>
 
-
+    
     <!-- product list -->
     <div class="row g-1 g-md-4">
-
+    @if (productList == null || !productList.Any())
+    {
+        <div class="alert alert-info">There are no products available.</div>
+    }
+    else
+    {
+      foreach (Product product in productList.Take(9))
+      {
         <div class="col-6 col-lg-4">
+      
             <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
+                <figure class="ratio ratio-1x1" style="overflow: hidden;">
                     <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/9-min.jpg" alt="...">
+                        <img class="rounded-top h-100" src="@product.Image1" alt="Product Image">
                     </span>
                 </figure>
                 <div class="card-body py-4">
-                    <a href="/product-single" class="text-decoration-none stretched-link text-gray-700">Sport Speakers CX</a>
+                    <a href="/product-single" class="text-decoration-none stretched-link text-gray-700">@product.Name</a>
                     <div class="d-block">
-                        <del class="text-muted fw-normal">$76.99</del>
-                        <span class="text-dark fw-medium">$56.99</span>
-                    </div>
-                </div>
-
-                <!-- badge -->
-                <div class="position-absolute top-0 start-0 p-3 z-index-1 text-start">
-                    <span class="badge bg-success rounded-pill fw-normal">New arrival</span>
-                </div>
-
-                <!-- btn : favourite -->
-                <div class="transition-reveal-item position-absolute top-0 end-0 p-3 z-index-1 text-end">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Save to favourites">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-
-                    <br>
-
-                    <!-- btn : cart -->
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Add to cart">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-6 col-lg-4">
-            <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/9-min.jpg" alt="...">
-                    </span>
-                </figure>
-                <div class="card-body py-4">
-                    <a href="/product-single" class="text-decoration-none stretched-link text-gray-700">Audiophile Pioneer SRR</a>
-                    <div class="d-block">
-                        <span class="text-dark fw-medium">$18.99</span>
-                    </div>
-                </div>
-
-                <!-- badge -->
-                <div class="position-absolute top-0 start-0 p-3 z-index-1 text-start">
-                    <span class="badge bg-danger rounded-pill fw-normal">sold out</span>
-                </div>
-
-                <!-- btn : favourite -->
-                <div class="transition-reveal-item position-absolute top-0 end-0 p-3 z-index-1 text-end">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Save to favourites">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-
-                    <br>
-
-                    <!-- btn : cart -->
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Add to cart">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-6 col-lg-4">
-            <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/7-min.jpg" alt="...">
-                    </span>
-                </figure>
-                <div class="card-body py-4">
-                    <a href="/product-single" class="text-decoration-none stretched-link text-gray-700">Sport Jabra Elite 75T</a>
-                    <div class="d-block">
-                        <span class="text-dark fw-medium">$32.99</span>
+                         <span class="text-dark fw-medium">@product.Prices.FirstOrDefault(p => p.PId == product.PId)?.Price1.ToString("C")</span>
                     </div>
                 </div>
 
@@ -193,219 +86,12 @@
                         </svg>
                     </button>
                 </div>
-
+                              
             </div>
+            
         </div>
-
-        <div class="col-6 col-lg-4">
-            <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/9-min.jpg" alt="...">
-                    </span>
-                </figure>
-                <div class="card-body py-4">
-                    <a href="/product-single" class="text-decoration-none stretched-link text-gray-700">Speakers Klipsch RSB-6</a>
-                    <div class="d-block">
-                        <span class="text-dark fw-medium">$22.99</span>
-                    </div>
-                </div>
-
-                <!-- btn : favourite -->
-                <div class="transition-reveal-item position-absolute top-0 end-0 p-3 z-index-1 text-end">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Save to favourites">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-
-                    <br>
-
-                    <!-- btn : cart -->
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Add to cart">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-6 col-lg-4">
-            <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/9-min.jpg" alt="...">
-                    </span>
-                </figure>
-                <div class="card-body py-4">
-                    <a href="shop-product-single.html" class="text-decoration-none stretched-link text-gray-700">Senheiser CX.88T</a>
-                    <div class="d-block">
-                        <span class="text-dark fw-medium">$78.99</span>
-                    </div>
-                </div>
-
-                <!-- btn : favourite -->
-                <div class="transition-reveal-item position-absolute top-0 end-0 p-3 z-index-1 text-end">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Save to favourites">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-
-                    <br>
-
-                    <!-- btn : cart -->
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Add to cart">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-6 col-lg-4">
-            <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/7-min.jpg" alt="...">
-                    </span>
-                </figure>
-                <div class="card-body py-4">
-                    <a href="shop-product-single.html" class="text-decoration-none stretched-link text-gray-700">Audio Tehnics Hi-FI</a>
-                    <div class="d-block">
-                        <span class="text-dark fw-medium">$43.99</span>
-                    </div>
-                </div>
-
-                <!-- btn : favourite -->
-                <div class="transition-reveal-item position-absolute top-0 end-0 p-3 z-index-1 text-end">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Save to favourites">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-
-                    <br>
-
-                    <!-- btn : cart -->
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Add to cart">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-6 col-lg-4">
-            <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/7-min.jpg" alt="...">
-                    </span>
-                </figure>
-                <div class="card-body py-4">
-                    <a href="shop-product-single.html" class="text-decoration-none stretched-link text-gray-700">On-Ear Bluetooth 2.0</a>
-                    <div class="d-block">
-                        <span class="text-dark fw-medium">$12.99</span>
-                    </div>
-                </div>
-
-                <!-- btn : favourite -->
-                <div class="transition-reveal-item position-absolute top-0 end-0 p-3 z-index-1 text-end">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Save to favourites">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-
-                    <br>
-
-                    <!-- btn : cart -->
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Add to cart">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-6 col-lg-4">
-            <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/8-min.jpg" alt="...">
-                    </span>
-                </figure>
-                <div class="card-body py-4">
-                    <a href="shop-product-single.html" class="text-decoration-none stretched-link text-gray-700">PC/Gaming Audio Tehnics</a>
-                    <div class="d-block">
-                        <span class="text-dark fw-medium">$31.99</span>
-                    </div>
-                </div>
-
-                <!-- btn : favourite -->
-                <div class="transition-reveal-item position-absolute top-0 end-0 p-3 z-index-1 text-end">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Save to favourites">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-
-                    <br>
-
-                    <!-- btn : cart -->
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Add to cart">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-6 col-lg-4">
-            <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="../demo.files/images/products/speakers/9-min.jpg" alt="...">
-                    </span>
-                </figure>
-                <div class="card-body py-4">
-                    <a href="shop-product-single.html" class="text-decoration-none stretched-link text-gray-700">In Ear Elite Jabra 3.1</a>
-                    <div class="d-block">
-                        <span class="text-dark fw-medium">$15.99</span>
-                    </div>
-                </div>
-
-                <!-- btn : favourite -->
-                <div class="transition-reveal-item position-absolute top-0 end-0 p-3 z-index-1 text-end">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Save to favourites">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-
-                    <br>
-
-                    <!-- btn : cart -->
-                    <button type="button" class="btn btn-outline-secondary rounded-circle p-2 mb-2" data-bs-toggle="tooltip" data-placement="left" data-bs-original-title="Add to cart">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-        </div>
+      }
+  }
 
     </div>
 
@@ -442,3 +128,10 @@
   </div>
     </div>
 </section>
+@code{
+    List<Product> productList = new();
+    protected override async Task OnInitializedAsync()
+    {
+        productList = await ClientService.GetAllProduct();
+    }
+}

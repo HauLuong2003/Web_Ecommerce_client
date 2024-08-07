@@ -42,9 +42,9 @@ namespace Web_Ecommerce_Cilent.Service
         public async Task<List<Product>> GetProductfeatured(bool featuredProducts)
         {
             var response = await httpClient.GetAsync($"{BaseUrl}/featured?featured={featuredProducts}");
-            if (response.IsSuccessStatusCode) return null!;
+            //if (!response.IsSuccessStatusCode) return null!;
             var result = await response.Content.ReadAsStringAsync();
-            return [.. DeserializeJsonStringList<Product>(result)];
+            return  DeserializeJsonStringList<Product>(result).ToList();
 
         }
         public Task<ServiceResponse> DeleteProduct(int id)

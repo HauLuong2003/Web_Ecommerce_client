@@ -40,9 +40,10 @@
                                          <td>@product.PId</td>
                                         <td>@product.Name</td>
                                         <td>@product.Quantity</td>
-                                                    <td>
-                                                        <img src="@product.Image1" alt="Product Image" style="max-width: 100px; max-height: 100px;" />
-                                                    </td>
+                                        
+                                        <td>
+                                            <img src="@product.Image1" alt="Product Image" style="max-width: 100px; max-height: 100px;" />
+                                        </td>
                                          <td>@product.Prices.FirstOrDefault(p => p.PId == product.PId)?.Price1.ToString("C")</td>
                                        @*  <td >@product.Brand.BrandName</td> *@
                                         <td>@product.CreateAt</td>
@@ -73,7 +74,6 @@
     protected override async Task OnInitializedAsync()
     {
         await LoadProducts();
-
     }
 
     private async Task LoadProducts()
