@@ -26,7 +26,6 @@ namespace Web_Ecommerce_Cilent.Service
                 UnmappedMemberHandling = JsonUnmappedMemberHandling.Skip
             };
         }
-
         public async Task<ServiceResponse> AddProduct(AddProductDTO addProduct)
         {
             var response = await httpClient.PostAsync(BaseUrl,GenerateStringContent(SerializeObj(addProduct)));
@@ -66,9 +65,11 @@ namespace Web_Ecommerce_Cilent.Service
             throw new NotImplementedException();
         }
 
-        public Task<List<Product>> GetProductByBrand(int brandId)
+        public async Task<List<Product>> GetProductByBrand(int brandId)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.GetAsync($"{BaseUrl}/search-brand?brandId={brandId}");
+            var result = await response.Content.ReadAsStringAsync();
+            return DeserializeJsonStringList<Product>(result).ToList();
         }
 
         public Task<Product> GetProductById(int productId)

@@ -1,12 +1,13 @@
 ﻿@page "/"
+
 <!-- offers -->
 <!-- Slider -->
 <FeatureProcduct />
-<section class="pt-0">
+<section >
 <div class="container">
 
 <div class="row g-4">
-    <NavMenu />
+  <NavMenu BrandClickEvent="BrandClickEvent" />
   <div class="col-sm-12 col-md-12 col-lg-9">
     <!-- additional filters -->
     <div class="d-flex justify-content-between mb-4">
@@ -46,22 +47,19 @@
     
     <!-- product list -->
     <div class="row g-1 g-md-4">
-    @if (productList == null || !productList.Any())
+    @if (productList.Any())
     {
-        <div class="alert alert-info">There are no products available.</div>
-    }
-    else
-    {
-      foreach (Product product in productList.Take(9))
+      foreach (Product product in productList)
       {
         <div class="col-6 col-lg-4">
       
             <div class="card h-100 shadow-xs-secondary transition-top-hover transition-reveal-hover">
-                <figure class="ratio ratio-1x1" style="overflow: hidden;">
-                    <span class="d-flex justify-content-center align-items-center">
-                        <img class="rounded-top h-100" src="@product.Image1" alt="Product Image">
+                <figure class="ratio ratio-1x1 " style="overflow: hidden;">
+                     <span class="d-flex justify-content-center align-items-center" >
+                         <img class="rounded-top h-100" src="@product.Image1" alt="Product Image" >
                     </span>
                 </figure>
+
                 <div class="card-body py-4">
                     <a href="/product-single" class="text-decoration-none stretched-link text-gray-700">@product.Name</a>
                     <div class="d-block">
@@ -130,8 +128,29 @@
 </section>
 @code{
     List<Product> productList = new();
+    public int selectedBrandId;
+
     protected override async Task OnInitializedAsync()
     {
         productList = await ClientService.GetAllProduct();
+        await UpdateProductList();
+    
     }
+
+    private async Task UpdateProductList()
+    {
+        if(selectedBrandId > 0){
+            productList = await ClientService.GetProductByBrand(selectedBrandId);
+        }
+        StateHasChanged(); // Cập nhật lại UI
+    }
+    private async void BrandClickEvent(int brandId)
+    {
+        // Re-fetch the product list when the brand ID changes
+        selectedBrandId = brandId;
+        
+        await UpdateProductList(); // Fire-and-forget to avoid blocking the UI thread
+    }
+
+    
 }

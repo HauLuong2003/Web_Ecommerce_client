@@ -54,60 +54,41 @@
 
     <div class="mb-5">
         <h3 class="h6">Brand</h3>
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-brand-1">
-            <label class="form-check-label" for="filter-brand-1">
-                DELL
-            </label>
-        </div>
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-brand-2">
-            <label class="form-check-label" for="filter-brand-2">
-                Lenovo
-            </label>
-        </div>
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-brand-3">
-            <label class="form-check-label" for="filter-brand-3">
-                ASUS
-            </label>
-        </div>
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-brand-4">
-            <label class="form-check-label" for="filter-brand-4">
-                ACER
-            </label>
-        </div>
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-brand-5">
-            <label class="form-check-label" for="filter-brand-5">
-                HP
-            </label>
-        </div>
+        @if (brandList.Any())
+        {
+            foreach (Brand brand in brandList)
+            {
 
-        <div id="brands-more" class="collapse">
-            <div class="form-check user-select-none mb-2">
-                <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-brand-6">
-                <label class="form-check-label" for="filter-brand-6">
-                    MACBOOK
-                </label>
-            </div>
-            <div class="form-check user-select-none mb-2">
-                <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-brand-7">
-                <label class="form-check-label" for="filter-brand-7">
-                    MSI
-                </label>
-            </div>
-        </div>
-
-        <a href="#brands-more" data-bs-toggle="collapse" class="text-decoration-none text-muted">
-            <span class="group-switch">
-                <span>view more (2)</span>
-                <span>view less (2)</span>
-            </span>
-        </a>
+                <div class="form-check user-select-none mb-2">
+                    <input class="form-check-input form-check-input-default"
+                           type="checkbox"
+                           value="@brand.BrandId"
+                           id="filter-brand-@brand.BrandId"
+                           checked="@((id == brand.BrandId) ? true : false)"
+                           @onclick="() => BrandClick( brand.BrandId)"
+                            >
+                    <label class="form-check-label" for="filter-brand-@brand.BrandId">
+                        @brand.BrandName
+                    </label>
+                </div>
+            }
+        }
     </div>
 </div>
 @code{
+    List<Brand> brandList = new();
+    [Parameter] public EventCallback<int> BrandClickEvent { get; set; }
+    public int id { get; set; } = 0;
+    protected override async Task OnInitializedAsync()
+    {
+        brandList = await brandService.GetAllBrands();
+       
+    }
 
+    public async Task BrandClick(int brandId)
+    {
+        id = brandId;
+        await BrandClickEvent.InvokeAsync(brandId);
+    }
+ 
 }

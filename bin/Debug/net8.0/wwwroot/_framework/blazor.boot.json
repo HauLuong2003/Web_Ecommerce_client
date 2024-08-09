@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Web_Ecommerce_Cilent",
   "resources": {
-    "hash": "sha256-iEM2KkqAskpNCAOtxAgUgCkm3jARVKkDCEojul4IGlQ=",
+    "hash": "sha256-UeyHI9D26tH/s4q+zVtQ0siw4mcF4GuxQmdKNjzsMmQ=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.6ngljrpwvl.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -222,11 +222,11 @@
       "netstandard.wasm": "sha256-d4xbAE8qrKq5euUoZHPO+jkYPjlCYBzUew45MKsYKic=",
       "System.Private.CoreLib.wasm": "sha256-8yi6NcX1lkNQgV4WKjnMBYIZyKh4P+OXnXVQmgxGZD4=",
       "Ecommerce_Models.wasm": "sha256-4A27ThPnPi3/BUgy+dLAON10HJI3SwKF27/ERKTyltc=",
-      "Web_Ecommerce_Cilent.wasm": "sha256-9GnlOYAwIzo6bLY5afd4AzN6jGD54vTwWcaXdmj08Gw="
+      "Web_Ecommerce_Cilent.wasm": "sha256-ATWAxCajQkC/52PjfS2TD+Hizjza7MLu0wLOnmDeaKc="
     },
     "pdb": {
       "Ecommerce_Models.pdb": "sha256-Tgais2xEDrShVZK6z/41eTI837nLDP6YRne6OXldZMM=",
-      "Web_Ecommerce_Cilent.pdb": "sha256-sLOPg/4uS0/9x/MykuUtpxD4fiBZLw+nWv1kCTfi1cI="
+      "Web_Ecommerce_Cilent.pdb": "sha256-YgRZboRUvnKH6V91OecC+iJHQsqeybYYMU0E0YJ2ffQ="
     }
   },
   "cacheBootResources": true,
