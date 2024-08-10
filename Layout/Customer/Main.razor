@@ -2,10 +2,11 @@
 
 <!-- offers -->
 <!-- Slider -->
+<NavBar OnSearch="HandleSearch"/>
 <FeatureProcduct />
+
 <section >
 <div class="container">
-
 <div class="row g-4">
   <NavMenu BrandClickEvent="BrandClickEvent" />
   <div class="col-sm-12 col-md-12 col-lg-9">
@@ -20,11 +21,6 @@
                 </svg>
             </a>
 
-            <ul class="dropdown-menu min-w-auto shadow-lg p-3" aria-labelledby="dropdownMenuPopular">
-                <li><a class="dropdown-item active" href="#">Popular First</a></li>
-                <li><a class="dropdown-item" href="#">Price: High</a></li>
-                <li><a class="dropdown-item" href="#">Price: Low</a></li>
-            </ul>
         </div>
 
         <div class="d-inline-grid gap-auto-2">
@@ -129,28 +125,33 @@
 @code{
     List<Product> productList = new();
     public int selectedBrandId;
-
+    public string name;
     protected override async Task OnInitializedAsync()
     {
         productList = await ClientService.GetAllProduct();
         await UpdateProductList();
-    
-    }
 
+    }
     private async Task UpdateProductList()
     {
         if(selectedBrandId > 0){
             productList = await ClientService.GetProductByBrand(selectedBrandId);
+        }
+        if (name != null)
+        {
+            productList = await ClientService.GetProductByName(name);
         }
         StateHasChanged(); // Cập nhật lại UI
     }
     private async void BrandClickEvent(int brandId)
     {
         // Re-fetch the product list when the brand ID changes
-        selectedBrandId = brandId;
-        
+        selectedBrandId = brandId;       
         await UpdateProductList(); // Fire-and-forget to avoid blocking the UI thread
     }
-
+    private async Task HandleSearch(string name)
+    {
+        productList = await ClientService.GetProductByName(name);
+    }
     
 }

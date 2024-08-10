@@ -1,6 +1,5 @@
 ﻿
 <!-- search : pusher -->
-
 <div id="main-search" class="bg-gray-200 collapse">
     <div class="container position-relative">
 
@@ -14,9 +13,8 @@
             <div class="col-lg-8 mx-auto py-5">
 
                 <!-- form -->
-                <form method="get" action="#" class="bg-white shadow p-2 mt-5 mt-lg-3 rounded d-flex">
-                    <!-- input -->
-                    <input required="" type="text" name="keyword" class="form-control shadow-none border-0" placeholder="search..." aria-label="search..." aria-describedby="button-search">
+                <form method="get" @onsubmit="HandleSearch" class="bg-white shadow p-2 mt-5 mt-lg-3 rounded d-flex">
+                    <input required="" @bind="name" type="text" name="name" class="form-control shadow-none border-0" placeholder="search..." aria-label="search..." aria-describedby="button-search">
                     <!-- submit button -->
                     <button type="submit" class="btn btn-primary px-4 shadow-none" id="button-search">
                         <svg width="18px" height="18px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -145,8 +143,8 @@
                   </svg>
                   <span>Favourites</span>
                 </a>
-              </li> *@
-                    @* <li>
+              </li> 
+                     <li>
                 <a class="dropdown-item" href="#">
                   <svg class="text-gray-600" width="18px" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                     <path d="M3 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2z"></path>
@@ -195,7 +193,14 @@
 
     </nav>
 @code{
-   
+    private string name;
+    [Parameter]
+    public EventCallback<string> OnSearch { get; set; }
+
+    private async Task HandleSearch()
+    {
+        await OnSearch.InvokeAsync(name);
+    }
 
 }
 

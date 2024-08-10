@@ -72,14 +72,18 @@ namespace Web_Ecommerce_Cilent.Service
             return DeserializeJsonStringList<Product>(result).ToList();
         }
 
-        public Task<Product> GetProductById(int productId)
+        public async Task<Product> GetProductById(int productId)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.GetAsync($"{BaseUrl}/{productId}");
+            var result = await response.Content.ReadAsStringAsync();
+            return DeserializeJsonString<Product>(result); 
         }
 
-        public Task<List<Product>> GetProductByName(string name)
+        public async Task<List<Product>> GetProductByName(string name)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.GetAsync($"{BaseUrl}/search-name?name={name}");
+            var result = await response.Content.ReadAsStringAsync();
+            return DeserializeJsonStringList<Product>(result).ToList();
         }
 
         public Task<List<Product>> GetProductByPrice(float price)
