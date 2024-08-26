@@ -6,30 +6,38 @@
     <div class="mb-5">
         <h3 class="h6">Price</h3>
 
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-price-25-50">
-            <label class="form-check-label" for="filter-price-25-50">
-                25 - 50
-            </label>
+        <div style="margin-bottom: 20px;">
+            <label for="customRange2" class="form-label">0$ - 2000$</label>
+            <input type="range" class="form-range" min="0" max="2000" @bind="priceValue" id="customRange2" oninput="updateValue(this.value)">
+            <span id="rangeValue">@priceValue$</span>
         </div>
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-price-50-100">
-            <label class="form-check-label" for="filter-price-50-100">
-                50 - 100
-            </label>
-        </div>
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-price-100-500">
-            <label class="form-check-label" for="filter-price-100-500">
-                100 - 500
-            </label>
-        </div>
-        <div class="form-check user-select-none mb-2">
-            <input class="form-check-input form-check-input-default" type="checkbox" value="" id="filter-price-500">
-            <label class="form-check-label" for="filter-price-500">
-                500 &amp; Above
-            </label>
-        </div>
+        <button type="submit" @onclick="() => PriceClick(priceValue)" class=" btn btn-primary">
+            <span>Result</span>
+            <svg class="transform-flip-x-rtl" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+            </svg>
+        </button>       
+        <script>
+            const rangeInput = document.getElementById('customRange2');
+            const rangeValue = document.getElementById('rangeValue');
+
+            function updateValue(value) {
+                // Cập nhật giá trị tiền
+                rangeValue.textContent = value + "$";
+
+                // Tính toán vị trí của giá trị trên thumb
+                const valuePosition = (value - rangeInput.min) / (rangeInput.max - rangeInput.min);
+                const positionPercentage = valuePosition * 100;
+
+                // Đặt vị trí của span theo vị trí thumb
+                rangeValue.style.left = `calc(${positionPercentage}% - ${rangeValue.offsetWidth / 2}px)`;
+            }
+
+            // Gọi hàm để hiển thị giá trị ban đầu
+            updateValue(rangeInput.value);
+        </script>
+
+
     </div>
 
     <div class="mb-5">
@@ -56,19 +64,31 @@
     </div>
 </div>
 @code{
+    private int priceValue = 0;
     List<Brand> brandList = new();
     [Parameter] public EventCallback<int> BrandClickEvent { get; set; }
+    [Parameter] public EventCallback<int> PriceClickEvent { get; set; }
+
     public int id { get; set; } = 0;
     protected override async Task OnInitializedAsync()
     {
         brandList = await brandService.GetAllBrands();
-       
+
     }
 
+    private void OnPriceChange(ChangeEventArgs e)
+    {
+        priceValue = int.Parse(e.Value.ToString());
+    }
     public async Task BrandClick(int brandId)
     {
         id = brandId;
         await BrandClickEvent.InvokeAsync(brandId);
     }
- 
+    public async Task PriceClick(int Price)
+    {
+        priceValue = Price;
+        await PriceClickEvent.InvokeAsync(Price);
+    }
 }
+    

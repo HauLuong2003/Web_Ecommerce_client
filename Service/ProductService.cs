@@ -4,6 +4,7 @@ using Ecommerce_Models.Response;
 using Ecommerce_Models.Service;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Xml.Linq;
 using static System.Net.WebRequestMethods;
 
 namespace Web_Ecommerce_Cilent.Service
@@ -86,12 +87,13 @@ namespace Web_Ecommerce_Cilent.Service
             return DeserializeJsonStringList<Product>(result).ToList();
         }
 
-        public Task<List<Product>> GetProductByPrice(float price)
+        public async Task<List<Product>> GetProductByPrice(float price)
         {
-            throw new NotImplementedException();
+            var response = await httpClient.GetAsync($"{BaseUrl}/search-price?price={price}");
+            var result = await response.Content.ReadAsStringAsync();
+            return DeserializeJsonStringList<Product>(result).ToList();
         }
 
-      
 
         public Task<Price> GetProductPrice(int ProductId)
         {

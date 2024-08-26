@@ -1,0 +1,63 @@
+﻿@page "/Contact"
+
+
+
+    <div class="row g-0 bg-white min-vh-100 align-items-stretch">
+        <div class="col-lg-5 text-center text-lg-start overflow-hidden z-index-2 d-flex align-items-center">
+
+        <a href="/" class="link-muted position-absolute top-0 start-0 p-2 d-inline-grid gap-auto-2">
+            <svg class="transform-flip-x-rtl" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>
+            </svg>
+            <span>back to homepage</span>
+        </a>
+            <div class="row my-6">
+                <div class="col-sm-8 mx-auto">
+
+                    <h1 class="fw-bold">Contact Us</h1>
+                    <p class="lead mb-5">If you have any question or you just want to say to us "hello", do not hesitate to send us a message.</p>
+
+                    <form class="form-validate" method="POST" action="#">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-floating mb-3">
+                                    <input required type="email" class="form-control" id="contact-name" placeholder="Your name">
+                                    <label for="contact-name">Your name</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-floating mb-3">
+                                    <input required type="email" class="form-control" id="contact-email" placeholder="name@example.com">
+                                    <label for="contact-email">Email address</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <textarea required class="form-control" placeholder="Leave a comment here" id="contact-message" style="height: 200px"></textarea>
+                            <label for="contact-message">Message</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <span>Send message</span>
+                            <svg class="transform-flip-x-rtl" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+                            </svg>
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-7 min-vh-75">
+
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.814208235181!2d106.68687387405426!3d10.825525889326231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528f08c98ee43%3A0x653911dc02ae8f43!2zNTUxIFBoYW4gVsSDbiBUcuG7iy8xNCDEkC4gUGhhbiBWxINuIFRy4buLLCBQaMaw4budbmcgMDUsIEfDsiBW4bqlcCwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1723469021312!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+
+        </div>
+    </div>
+@code {
+
+}

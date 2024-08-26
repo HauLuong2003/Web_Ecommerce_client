@@ -8,7 +8,7 @@
 <section >
 <div class="container">
 <div class="row g-4">
-  <NavMenu BrandClickEvent="BrandClickEvent" />
+            <NavMenu BrandClickEvent="BrandClickEvent" PriceClickEvent="PriceClickEvent" />
   <div class="col-sm-12 col-md-12 col-lg-9">
     <!-- additional filters -->
     <div class="d-flex justify-content-between mb-4">
@@ -126,6 +126,8 @@
     List<Product> productList = new();
     public int selectedBrandId;
     public string name;
+    [Parameter]
+    public int Price { get; set; }
     protected override async Task OnInitializedAsync()
     {
         productList = await ClientService.GetAllProduct();
@@ -141,6 +143,10 @@
         {
             productList = await ClientService.GetProductByName(name);
         }
+        if(Price > 0)
+        {
+            productList =  await ClientService.GetProductByPrice(Price);
+        }
         StateHasChanged(); // Cập nhật lại UI
     }
     private async void BrandClickEvent(int brandId)
@@ -153,5 +159,10 @@
     {
         productList = await ClientService.GetProductByName(name);
     }
-    
+    private async void PriceClickEvent(int price)
+    {
+        // Re-fetch the product list when the brand ID changes
+        Price = price;
+        await UpdateProductList(); // Fire-and-forget to avoid blocking the UI thread
+    }
 }
